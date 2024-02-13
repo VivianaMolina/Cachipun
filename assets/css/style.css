@@ -1,0 +1,12 @@
+body{
+    margin: 0;
+    padding: 0px;
+    background-color: #663399;
+}
+h1{
+    color: #ffffff;
+    font-weight: bold;
+    justify-content: center;
+    display: flex;
+    font-size: 75px;    
+}
