@@ -22,10 +22,13 @@ if (CantidadJugadas > 0) {
         juegaCachipun(JugadaUsuario, JugadaMaquina);
     }
     if (contadorMaquina < contadorUsuario) {
-        alert("Felicitaciones, ha ganado la partida!!!")
+        alert("Felicitaciones, ha ganado la partida!!!");
     }
-    else{
-        alert("Lamentablemente, gano la máquina")
+    else if (contadorMaquina === contadorUsuario) {
+        alert("Se ha producido un empate en esta partida");
+    }
+    else {
+        alert("Lamentablemente, ganó la máquina");
     }
 }
 else {
