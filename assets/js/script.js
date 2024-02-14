@@ -32,7 +32,7 @@ if (CantidadJugadas > 0) {
     }
 }
 else {
-    alert("Debe indicar numero de jugadas");
+    alert("Debe indicar número de jugadas");
 }
 
 function juegaCachipun(JugadaPersona, JugadaMaquina) {
@@ -46,34 +46,35 @@ function juegaCachipun(JugadaPersona, JugadaMaquina) {
     }
     //Tijera le gana a papel
     if (JugadaPersona === JuegaTijera && JugadaMaquina === JuegaPapel) {
-        alert("Usted le gano a la maquina");
+        alert("Usted le gano a la máquina");
         contadorUsuario++;
     }
     else
         if (JugadaMaquina === JuegaTijera && JugadaPersona === JuegaPapel) {
-            alert("La Maquina le gano a usted");
+            alert("La máquina le gano a usted");
             contadorMaquina++;
         }
     // Papel le gana a piedra
     if (JugadaPersona === JuegaPapel && JugadaMaquina === JuegaPiedra) {
-        alert("Usted le gano a la maquina");
+        alert("Usted le ganó a la máquina");
         contadorUsuario++;
     }
     else
         if (JugadaMaquina === JuegaPapel && JugadaPersona === JuegaPiedra) {
-            alert("La maquina le gano a usted");
+            alert("La máquina le ganó a usted");
             contadorMaquina++;
         }
     // Piedra le gana a tijera
     if (JugadaPersona === JuegaPiedra && JugadaMaquina === JuegaTijera) {
-        alert("Usted le gano a la maquina");
+        alert("Usted le gano a la máquina");
         contadorUsuario++;
     }
     else
         if (JugadaMaquina === JuegaPiedra && JugadaPersona === JuegaTijera) {
-            alert("La maquina le gano a usted");
+            alert("La máquina le ganó a usted");
             contadorMaquina++;
         }
+    return;
 }
 
 //Valida e informa al jugador la jugada realizada por el y la máquina
@@ -92,6 +93,7 @@ function tipoJuego(jugada, jugador) {
             alert("El número ingresado no es Piedra, Papel o Tijera");
             break;
     }
+    return;
 
 }
 
