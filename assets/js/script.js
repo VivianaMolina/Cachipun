@@ -6,6 +6,7 @@ const JuegaTijera = 2;
 //Declara variables para contabilizar jugadas ganadas por usuario y/o máquina
 var contadorUsuario = 0;
 var contadorMaquina = 0;
+var opcionvalida = false;
 
 //DVariables para identificar usuario y máquina
 var usuario = "Usted";
@@ -19,12 +20,19 @@ if (CantidadJugadas > 0) {
     for (i = 1; i <= CantidadJugadas; i++) {
         const JugadaUsuario = parseInt(prompt("Indique 0 piedra / 1 Papel / 2 Tijeras"));
         const JugadaMaquina = Math.floor(Math.random() * 3);
-        juegaCachipun(JugadaUsuario, JugadaMaquina);
+
+        if (JugadaUsuario === 0 || JugadaUsuario === 1 || JugadaUsuario === 2){
+            juegaCachipun(JugadaUsuario, JugadaMaquina);
+        }
+        else {
+            alert("El número ingresado no es Piedra, Papel o Tijera, pierde este juego");
+            opcionvalida = true;
+        }
     }
     if (contadorMaquina < contadorUsuario) {
         alert("Felicitaciones, ha ganado la partida!!!");
     }
-    else if (contadorMaquina === contadorUsuario) {
+    else if (contadorMaquina === contadorUsuario && opcionvalida === false ) {
         alert("Se ha producido un empate en esta partida");
     }
     else {
@@ -40,41 +48,37 @@ function juegaCachipun(JugadaPersona, JugadaMaquina) {
     tipoJuego(JugadaPersona, usuario);
     tipoJuego(JugadaMaquina, maquina);
 
-    // Si ambos jugadores eligen la misma opción es un empate
-    if (JugadaPersona === JugadaMaquina) {
-        alert("Empate");
-    }
     //Tijera le gana a papel
     if (JugadaPersona === JuegaTijera && JugadaMaquina === JuegaPapel) {
         alert("Usted le gano a la máquina");
         contadorUsuario++;
+    } 
+    else if (JugadaMaquina === JuegaTijera && JugadaPersona === JuegaPapel) {
+        alert("La máquina le gano a usted");
+        contadorMaquina++;
     }
-    else
-        if (JugadaMaquina === JuegaTijera && JugadaPersona === JuegaPapel) {
-            alert("La máquina le gano a usted");
-            contadorMaquina++;
-        }
     // Papel le gana a piedra
-    if (JugadaPersona === JuegaPapel && JugadaMaquina === JuegaPiedra) {
+    else if (JugadaPersona === JuegaPapel && JugadaMaquina === JuegaPiedra) {
         alert("Usted le ganó a la máquina");
         contadorUsuario++;
     }
-    else
-        if (JugadaMaquina === JuegaPapel && JugadaPersona === JuegaPiedra) {
+    else if (JugadaMaquina === JuegaPapel && JugadaPersona === JuegaPiedra) {
             alert("La máquina le ganó a usted");
             contadorMaquina++;
-        }
+    }
     // Piedra le gana a tijera
-    if (JugadaPersona === JuegaPiedra && JugadaMaquina === JuegaTijera) {
+    else if (JugadaPersona === JuegaPiedra && JugadaMaquina === JuegaTijera) {
         alert("Usted le gano a la máquina");
         contadorUsuario++;
     }
-    else
-        if (JugadaMaquina === JuegaPiedra && JugadaPersona === JuegaTijera) {
+    else if (JugadaMaquina === JuegaPiedra && JugadaPersona === JuegaTijera) {
             alert("La máquina le ganó a usted");
             contadorMaquina++;
-        }
-    return;
+    }
+    // Si ambos jugadores eligen la misma opción es un empate
+    else {
+        alert("Empate");
+    }
 }
 
 //Valida e informa al jugador la jugada realizada por el y la máquina
@@ -93,7 +97,5 @@ function tipoJuego(jugada, jugador) {
             alert("El número ingresado no es Piedra, Papel o Tijera");
             break;
     }
-    return;
-
 }
 
